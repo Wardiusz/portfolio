@@ -31,6 +31,7 @@ export default function App() {
     }
   }, [showMatrix]);
 
+// Changing slides on key press [Up, Down, Left, Right]
   useEffect(() => {
     const handleKey = (e) => {
       if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
@@ -41,6 +42,38 @@ export default function App() {
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
+  }, []);
+
+// Changing slides on scroll
+  useEffect(() => {
+    let locked = false;
+    let timeout;
+
+    const handleWheel = (e) => {
+      e.preventDefault();
+
+      clearTimeout(timeout);
+
+      if (!locked) {
+        locked = true;
+        if (e.deltaY > 0) {
+          setActiveSlide((s) => Math.min(s + 1, SLIDE_LABELS.length - 1));
+        } else if (e.deltaY < 0) {
+          setActiveSlide((s) => Math.max(s - 1, 0));
+        }
+      }
+
+
+      timeout = setTimeout(() => {
+        locked = false;
+      }, 150);
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+      clearTimeout(timeout);
+    };
   }, []);
 
   return (
