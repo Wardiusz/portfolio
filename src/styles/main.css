@@ -89,8 +89,8 @@ canvas.matrix {
 }
 
 .nav-dot {
-  width: 8px;
-  height: 8px;
+  width: 14px;
+  height: 14px;
   border: 1px solid rgba(255, 255, 255, 0.81);
   border-radius: 11px;
   cursor: pointer;
@@ -102,9 +102,14 @@ canvas.matrix {
   background-color: white;
 }
 
+.nav-dot:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: none;
+}
+
 .nav-label {
   color: white;
-  font-size: 9px;
+  font-size: 14px;
   opacity: 0;
   transition: all 0.25s linear;
   white-space: nowrap;
@@ -163,9 +168,14 @@ canvas.matrix {
   width: 100%;
   box-sizing: border-box;
   padding: 0 110px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  justify-items: center;
+}
+
+.tech {
+  display: grid;
+  justify-items: center;
+  margin-top: 40px;
 }
 
 #bloczek {
@@ -244,6 +254,10 @@ strong {
 
 h1 {
   text-transform: uppercase;
+}
+
+h2 {
+  font-size: xx-large;
 }
 
 ol {
