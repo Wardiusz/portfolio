@@ -42,7 +42,7 @@ export default function MatrixBackground({ onFirstColumnDone }) {
           }
         }
       }
-    }, 28);
+    }, 24);
 
     return () => {
       clearInterval(interval);
