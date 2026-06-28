@@ -15,6 +15,11 @@ export default function ContactSlide() {
             </a>
           </span>
           <span>
+            <a href="mailto:luqasward@protonmail.com" target="_blank" rel="noreferrer">
+              <i className="fa fa-envelope" /> Mail
+            </a>
+          </span>
+          <span>
             <a
               href="https://discord.com/users/307942044855304193"
               target="_blank"
